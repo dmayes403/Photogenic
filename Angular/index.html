@@ -1,0 +1,132 @@
+<!DOCTYPE HTML>
+<html ng-app="myApp">
+	<head>
+		<Title>
+			Practice Website
+		</Title>
+		<link rel="stylesheet" type="text/css" href="main.css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<!-- Optional theme -->
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	</head>
+	<body>
+		<nav class="navbar navbar-default navbar-static-top">
+  			<div class="container=fluid">
+   				<div class="col-md-3 text" id="brand"><a href="/Users/davidmayes/Desktop/Angular/index.html">Phot[(o)]genic</a></div>
+  				</div>
+  			</div>
+		</nav>
+  		<div class="container-fluid">
+  			<div class="row">
+  				<div class="col-md-12" id="jumbopic">
+  					<img src="https://s3-us-west-2.amazonaws.com/www.apptest.com/images/	DRM_4610.jpg" class="img-responsive" alt="Responsive image">
+	  					<div class="col-md-4 col-md-offset-4" id="photobrand">
+	  						<a href="#"><h1>Phot[(o)]genic</h1></a>
+	  					</div>	
+  				</div>
+  			</div>
+  		</div>
+  		<nav class="navbar navbar-default navbar-static-top">
+  			<div class="col-md-3 text-center" id="genre" ng-class="{active: tab === 1}">
+  				<button class="btn" ng-click="tab = 1">Families</button>
+  			</div>
+  			<div class="col-md-3 text-center" id="genre" ng-class="{active: tab === 2}">
+  				<button class="btn" ng-click="tab = 2" >Bridals</button>
+  			</div>
+  			<div class="col-md-3 text-center" id="genre" ng-class="{active: tab === 3}">
+  				<button class="btn" ng-click="tab = 3">Seniors</button>
+  			</div>
+  			<div class="col-md-3 text-center" id="genre" ng-class="{active: tab === 4}">
+  				<button class="btn" ng-click="tab = 4">Vacation</button>
+  			</div>
+  		</nav>
+	  	<div class="pricing_all">	
+	  		<div class="row" id="family_pricing" ng-show="tab === 1">
+	  			<h3 id="pricingRow">Family Pricing - $175</h3><div id="pricingCancel" class="pull-right" ng-click="tab = 0">x</div>
+	  			<p>A family session includes 1 hour of coverage, a Hi-Res gallery with a minimum of 30 images, and a PDF of my Copyright Print Release.</p>
+	  		</div>
+	  		<div class="row" id="bridal_pricing" ng-show="tab === 2">
+	  			<h3 id="pricingRow">Bridal Pricing - $200</h3><div id="pricingCancel" class="pull-right" ng-click="tab = 0">x</div>
+	  			<p>A bridal session includes 1 hour of coverage, a Hi-Res gallery with a minimum of 30 images, and a PDF of my Copyright Print Release.</p>
+	  		</div>
+	  		<div class="row" id="senior_pricing" ng-show="tab === 3">
+	  			<h3 id="pricingRow">Senior Pricing - $250</h3><div id="pricingCancel" class="pull-right" ng-click="tab = 0">x</div>
+	  			<p>A senior session includes 1 hour of coverage, a Hi-Res gallery with a minimum of 30 images, and a PDF of my Copyright Print Release.</p>
+	  		</div>
+	  		<div class="row" id="vacation_pricing" ng-show="tab === 4">
+	  			<h3 id="pricingRow">Vacation Pricing - $3000</h3><div id="pricingCancel" class="pull-right" ng-click="tab = 0">x</div>
+	  			<p>A vacation session includes 1 hour of coverage, a Hi-Res gallery with a minimum of 30 images, and a PDF of my Copyright Print Release.</p>
+	  	</div>
+
+		<div class="row" ng-controller="picGenres">
+  			<div class="col-md-3" id="thumbnail" ng-repeat="family in families">
+				<img ng-src="{{family}}" class="img-responsive" alt="Responsive image">
+  			</div>
+  		</div>	
+
+  		<div class="row">
+  			<div class="col-md-3" id="testimonials">
+  				I had the best experience that I possibly could have! I would definitely recommend to anyone else searching for a photographer!
+  			</div>
+  			<div class="col-md-3" id="testimonials">
+  				I had the best experience that I possibly could have! I would definitely recommend to anyone else searching for a photographer!
+  			</div>
+  			<div class="col-md-3" id="testimonials">
+  				I had the best experience that I possibly could have! I would definitely recommend to anyone else searching for a photographer!
+  			</div>
+  			<div class="col-md-3" id="testimonials">
+  				I had the best experience that I possibly could have! I would definitely recommend to anyone else searching for a photographer!
+  			</div>
+  		</div>
+
+  		<nav class="navbar navbar-default navbar-static-top">
+  			<div class="container=fluid">
+   					<div class="username col-md-6 col-md-offset-6">
+   						<form>
+              				Search: <input type="text" placeholder="Search States" ng-model="searchText.state">
+            			</form>
+   					</div>
+  				</div>
+  			</div>
+		</nav>
+
+  		<section ng-controller="firstImpression">
+			<div ng-repeat="state in states | filter:searchText">   
+			    <nav class="navbar navbar-default navbar-static-top"></nav>
+			    <div class="row" id="firstImpression">
+			        <div class="col-md-2" id="nameInfo">
+			            <h3>{{state.firstName}} {{state.lastName}}</h3>
+			            <p>{{state.location}}</p>
+			        </div>
+			        <div class="col-md-6" id="pricingInfo">
+			            <h3>{{state.state}} Photographer</h3>
+			            <h5>Pricing: {{state.pricing | currency}}</h5>
+			            <p>{{state.summary}}</p></br>   
+			        </div>
+			        <div class="col-md-4" id="picInfo" ng-click="nextImage()">
+			            <img ng-src="{{state.images[imageIndex]}}" class="img-responsive" alt="Responsive image" id="thumbnail">
+			        </div>
+			    </div>
+			</div>
+		</section>
+
+
+
+
+	<!--image filepath for aws	"https://s3-us-west-2.amazonaws.com/www.apptest.com/images/DRM_4610.jpg" -->
+
+
+
+
+		<!-- Latest compiled and minified JavaScript -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="app.js"></script>
+		<script src="script.js"></script>
+		<script src="https://code.jquery.com/jquery-2.1.1.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+	</body>
+
+</html>
